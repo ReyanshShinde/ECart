@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block 'main' %}
+<div class="row mt-5">
+    <div class="col-md-4 shadow mt-5 p-4 mx-auto">
+        <h2>Login</h2>
+        {% if errmsg %}
+        <div class="alert alert-danger">
+            {{errmsg}}
+        </div>
+        {% endif %}
+        <form method="POST" action="">
+          {% csrf_token %}
+            <div class="mb-3">
+                <label for="Input1" class="form-label">Username:</label>
+                <input type="email" name="uname" class="form-control" id="Input1" placeholder="name@example.com">
+              </div>
+              <div class="mb-3">
+                <label for="Input2" class="form-label">Password:</label>
+                <input type="password" name="pass" class="form-control" id="Input2" placeholder="password">
+              </div>
+              
+              <div class="mb-3">
+               
+                <input type="submit" class="btn btn-danger" value="login">
+                Already a user?<a href="" style="text-decoration: none;">register</a>
+              </div>
+        </form>
+    </div>
+</div>
+
+<script src="asset/js/bootstrap.min.js">
+
+</script>       
+ {% endblock 'main' %}

@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="{% static 'js/main.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <img src="{% static 'images/vivo.jpg' %}" alt="">
+    <h1>this is home response from html page</h1>
+    <p>Name:{{name}}</p>
+    <p>Age:{{age}}</p>
+    <p>{{x}}</p>
+    {{l}}
+    {% if x > y %}
+        <p>{{x}},is gretest</p>
+    {% else %}
+     <p>{{y}},is greatest</p>
+    {% endif %}
+    {% for i in l %}
+        {{i}}<br><hr>
+    {% endfor %}
+    {{products}}
+    {% for i in products %}
+        {{i}}<br>
+        {{i.name}}<hr>
+    {% endfor %}
+    <hr>
+    {% for i in products %}
+         <strong>{{forloop.counter}}&nbsp;&nbsp;&nbsp;</strong>
+        <strong>Product Name:</strong>{{i.name}}
+        <strong>Category:</strong>{{i.cat}}
+        <strong>Price:</strong>{{i.price}}
+        <hr>
+    {% endfor %}
+    <hr>
+    <h1>presebntating data in table format</h1>
+    <table border="1">
+        <tr>
+            <th>sr.no</th>
+            <th>Name</th>
+            <th>category</th>
+            <th>Price</th>
+        </tr>
+        {% for x in products %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{x.name}}</td>
+            <td>{{x.cat}}</td>
+            <td>{{x.price}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <button onclick="greet()">click me</button>
+</body>
+</html>
